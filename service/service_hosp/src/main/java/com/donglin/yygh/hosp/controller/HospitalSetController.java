@@ -37,7 +37,7 @@ public class HospitalSetController {
 
 
     @ApiOperation(value = "锁定与解锁")
-    @DeleteMapping("/status/{id}/{status}")
+    @PostMapping("/status/{id}/{status}")
     public R status(@PathVariable Long id, @PathVariable Integer status){
         //HospitalSet byId = hospitalSetService.getById(id);  //乐观锁
         HospitalSet hospitalSet = new HospitalSet();
