@@ -3,7 +3,6 @@ package com.donglin.yygh.hosp.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.donglin.yygh.common.exception.YyghException;
 import com.donglin.yygh.common.result.R;
 import com.donglin.yygh.common.utils.MD5;
 import com.donglin.yygh.hosp.service.HospitalSetService;
@@ -63,6 +62,7 @@ public class HospitalSetController {
     public R detail(@PathVariable Integer id){
         return R.ok().data("items",hospitalSetService.getById(id));
     }
+
     //修改之修改数据
     @ApiOperation(value = "根据ID修改医院设置")
     @PutMapping("/update")
@@ -80,7 +80,6 @@ public class HospitalSetController {
         //签名秘钥
         Random random = new Random();
         hospitalSet.setSignKey(MD5.encrypt(System.currentTimeMillis()+""+random.nextInt(1000)));
-
         hospitalSetService.save(hospitalSet);
         return R.ok();
     }
