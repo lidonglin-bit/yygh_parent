@@ -40,5 +40,14 @@ public class DepartmentController {
         departmentService.save(map);
         return Result.ok();
     }
+
+    @ApiOperation(value = "删除科室")
+    @PostMapping("department/remove")
+    public Result remove(HttpServletRequest request){
+        Map<String, Object> map = HttpRequestHelper.switchMap(request.getParameterMap());
+        //必须参数校验 略
+        departmentService.remove(map);
+        return Result.ok();
+    }
 }
 
