@@ -1,10 +1,11 @@
 
 字段名|	类型	|长度|	必输|	说明
 |--|--|--|--|--|
-hoscode|	string|	30|	是	|给医院分配的唯一标识
-depcode|	string|	30|	是	|科室编号
+hoscode|	string|	30|	是|	给医院分配的唯一标识
+depcode|	string|	30|	是|	科室编号
 timestamp|	long|	|	是|	时间戳。从1970-01-01 00:00:00算起的毫秒数
-sign|	string|	32|	是	|验签参数。
+sign|	string|	32|	是|	验签参数。
+
 
 字段名|	类型	|长度|	必输|	说明
 |--|--|--|--|--|

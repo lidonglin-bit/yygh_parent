@@ -69,6 +69,29 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         EasyExcel.read(file.getInputStream(),DictEeVo.class,new DictListener(baseMapper)).sheet(0).doRead();
     }
 
+    @Override
+    public String getNameByValue(Long value) {
+        QueryWrapper<Dict> wrapper = new QueryWrapper<>();
+        wrapper.eq("value",value);
+        Dict dict = baseMapper.selectOne(wrapper);
+        if (dict != null){
+            return dict.getName();
+        }
+        return null;
+    }
+
+    @Override
+    public String getNameByDictCodeAndValue(String dictCode, Long value) {
+        QueryWrapper<Dict> wrapper = new QueryWrapper<>();
+        wrapper.eq("dict_code",dictCode);
+        Dict dict = baseMapper.selectOne(wrapper);
+        QueryWrapper<Dict> wrapper1 = new QueryWrapper<>();
+        wrapper1.eq("parent_id",dict.getId());
+        wrapper1.eq("value",value);
+        Dict dict2 = baseMapper.selectOne(wrapper1);
+        return dict2.getName();
+    }
+
     //判断id下面是否有子节点
     private boolean isChildren(Long dictId) {
         QueryWrapper<Dict> wrapper = new QueryWrapper<>();

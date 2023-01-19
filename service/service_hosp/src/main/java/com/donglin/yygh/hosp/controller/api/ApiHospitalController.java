@@ -1,4 +1,4 @@
-package com.donglin.yygh.hosp.controller;
+package com.donglin.yygh.hosp.controller.api;
 
 import com.donglin.yygh.common.exception.YyghException;
 import com.donglin.yygh.common.utils.MD5;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/hosp")
-public class HospitalController {
+public class ApiHospitalController {
 
     @Autowired
     private HospitalService hospitalService;

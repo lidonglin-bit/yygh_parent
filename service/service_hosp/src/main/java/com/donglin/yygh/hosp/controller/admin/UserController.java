@@ -1,4 +1,4 @@
-package com.donglin.yygh.hosp.controller;
+package com.donglin.yygh.hosp.controller.admin;
 
 import com.donglin.yygh.common.result.R;
 import org.springframework.web.bind.annotation.*;

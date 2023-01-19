@@ -1,4 +1,4 @@
-package com.donglin.yygh.hosp.controller;
+package com.donglin.yygh.hosp.controller.api;
 
 import com.donglin.yygh.hosp.bean.Result;
 import com.donglin.yygh.hosp.service.DepartmentService;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/hosp")
-public class DepartmentController {
+public class ApiDepartmentController {
 
     @Autowired
     private DepartmentService departmentService;

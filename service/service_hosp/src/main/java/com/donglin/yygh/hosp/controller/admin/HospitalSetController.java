@@ -1,4 +1,4 @@
-package com.donglin.yygh.hosp.controller;
+package com.donglin.yygh.hosp.controller.admin;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

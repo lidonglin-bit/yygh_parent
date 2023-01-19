@@ -55,6 +55,20 @@ public class DictController {
         return R.ok();
     }
 
+    //根据医院所属的省市区编号获取省市区文字
+    //远程调用@PathVariable指定value属性值
+    @GetMapping("/{value}")
+    public String getNameByValue(@PathVariable("value") Long value){
+        return dictService.getNameByValue(value);
+    }
+
+    //根据医院的等级编号获取医院等级信息
+    @GetMapping("/{dictCode}/{value}")
+    public String getNameByDictCodeAndValue(@PathVariable("dictCode") String dictCode,
+                                            @PathVariable("value") Long value){
+        return dictService.getNameByDictCodeAndValue(dictCode,value);
+    }
+
 
 }
 
