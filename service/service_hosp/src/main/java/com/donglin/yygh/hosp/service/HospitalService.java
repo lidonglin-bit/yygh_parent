@@ -4,6 +4,7 @@ import com.donglin.yygh.model.hosp.Hospital;
 import com.donglin.yygh.vo.hosp.HospitalQueryVo;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
 import java.util.Map;
 
 public interface HospitalService {
@@ -18,4 +19,10 @@ public interface HospitalService {
     void updateStatus(String id, Integer status);
 
     Hospital detail(String id);
+
+    Hospital getHospitalByHoscode(String hoscode);
+
+    List<Hospital> findByHosname(String name);
+
+    Hospital getHospitalDetail(String hoscode);
 }

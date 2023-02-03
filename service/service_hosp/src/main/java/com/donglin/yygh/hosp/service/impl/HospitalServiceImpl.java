@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -119,6 +120,23 @@ public class HospitalServiceImpl implements HospitalService {
     @Override
     public Hospital detail(String id) {
         Hospital hospital = hospitalRepository.findById(id).get();
+        this.packageHospital(hospital);
+        return hospital;
+    }
+
+    @Override
+    public Hospital getHospitalByHoscode(String hoscode) {
+        return  hospitalRepository.findByHoscode(hoscode);
+    }
+
+    @Override
+    public List<Hospital> findByHosname(String name) {
+        return hospitalRepository.findByHosnameLike(name);
+    }
+
+    @Override
+    public Hospital getHospitalDetail(String hoscode) {
+        Hospital hospital = hospitalRepository.findByHoscode(hoscode);
         this.packageHospital(hospital);
         return hospital;
     }

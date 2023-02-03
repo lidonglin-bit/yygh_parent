@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin/hosp")
-@CrossOrigin
 public class HospitalController {
 
     @Autowired

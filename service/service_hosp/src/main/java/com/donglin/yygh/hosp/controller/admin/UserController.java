@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin/user")
-@CrossOrigin  //解决跨域
 public class UserController {
 
     //login
