@@ -20,7 +20,7 @@ public class CodeGet {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         //gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setOutputDir("D:\\idea\\java2022SC\\yygh_parent\\service\\service_cmn"+"/src/main/java");
+        gc.setOutputDir("D:\\idea\\java2022SC\\yygh_parent\\service\\service_user"+"/src/main/java");
 
         gc.setServiceName("%sService");	//去掉Service接口的首字母I   user表生成的就为IUserService
         gc.setAuthor("donglin");
@@ -29,7 +29,7 @@ public class CodeGet {
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.121.140:3306/yygh_cmn");
+        dsc.setUrl("jdbc:mysql://192.168.121.140:3306/yygh_user");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -38,7 +38,7 @@ public class CodeGet {
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("cmn"); //模块名
+        pc.setModuleName("user"); //模块名
         pc.setParent("com.donglin.yygh");
         pc.setController("controller");
         pc.setEntity("entity");
@@ -49,7 +49,7 @@ public class CodeGet {
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
 
-        strategy.setInclude("dict");  //数据库表名
+        strategy.setInclude("patient");  //数据库表名
 
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
 
