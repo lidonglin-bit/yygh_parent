@@ -1,7 +1,10 @@
 package com.donglin.yygh.user.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.donglin.yygh.model.user.Patient;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.donglin.yygh.model.user.Patient;
  */
 public interface PatientService extends IService<Patient> {
 
+
+    List<Patient> findAll(String token);
+
+    Patient getPatient(Long id);
+
+    List<Patient> selectList(QueryWrapper<Patient> queryWrapper);
 }

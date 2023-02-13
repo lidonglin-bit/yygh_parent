@@ -1,4 +1,4 @@
-package com.donglin.yygh.user.controller;
+package com.donglin.yygh.user.controller.user;
 
 
 import com.alibaba.fastjson.JSONObject;

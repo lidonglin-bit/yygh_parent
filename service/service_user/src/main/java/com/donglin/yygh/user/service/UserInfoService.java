@@ -1,8 +1,10 @@
 package com.donglin.yygh.user.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.donglin.yygh.model.user.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.donglin.yygh.vo.user.LoginVo;
+import com.donglin.yygh.vo.user.UserInfoQueryVo;
 
 import java.util.Map;
 
@@ -21,4 +23,12 @@ public interface UserInfoService extends IService<UserInfo> {
     UserInfo selectWxInfoOpenId(String openid);
 
     UserInfo getUserInfo(Long userId);
+
+    Page<UserInfo> getUserInfoPage(Long pageNum, Long limit, UserInfoQueryVo userInfoQueryVo);
+
+    void lock(Long userId, Integer status);
+
+    Map<String, Object> show(Long userId);
+
+    void approval(Long userId, Integer authStatus);
 }

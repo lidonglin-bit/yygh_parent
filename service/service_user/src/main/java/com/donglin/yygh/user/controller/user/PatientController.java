@@ -1,4 +1,4 @@
-package com.donglin.yygh.user.controller;
+package com.donglin.yygh.user.controller.user;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -31,11 +31,7 @@ public class PatientController {
     //获取就诊人列表
     @GetMapping("/all")
     public R findAll(@RequestHeader String token) {
-        //获取当前登录用户id
-        Long userId = JwtHelper.getUserId(token);
-        QueryWrapper<Patient> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("user_id",userId);
-        List<Patient> list = patientService.list(queryWrapper);
+        List<Patient> list = patientService.findAll(token);
         return R.ok().data("list",list);
     }
     //添加就诊人
@@ -50,7 +46,7 @@ public class PatientController {
     //根据id获取就诊人信息，修改就诊人信息时回显
     @GetMapping("detail/{id}")
     public R getPatient(@PathVariable Long id) {
-        Patient patient = patientService.getById(id);
+        Patient patient = patientService.getPatient(id);
         return R.ok().data("patient",patient);
     }
     //修改就诊人
