@@ -3,10 +3,12 @@ package com.donglin.yygh.sms.service.impl;
 import com.donglin.yygh.sms.service.SmsService;
 import com.donglin.yygh.sms.uitls.HttpUtils;
 import com.donglin.yygh.sms.uitls.RandomUtil;
+import com.donglin.yygh.vo.sms.SmsVo;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class SmsServiceImpl implements SmsService {
 
     @Autowired
-    private RedisTemplate<String,String> redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
 
     @Override
     public boolean sendCode(String phone) {
@@ -30,7 +32,7 @@ public class SmsServiceImpl implements SmsService {
         Map<String, String> querys = new HashMap<String, String>();
         querys.put("mobile", phone);
         String fourBitRandom = RandomUtil.getFourBitRandom();
-        querys.put("param", "code:"+fourBitRandom);
+        querys.put("param", "code:" + fourBitRandom);
         querys.put("tpl_id", "TP1711063");
         Map<String, String> bodys = new HashMap<String, String>();
 
@@ -51,12 +53,20 @@ public class SmsServiceImpl implements SmsService {
             //System.out.println(EntityUtils.toString(response.getEntity()));
 
             //把验证码保存redis中一份
-            redisTemplate.opsForValue().set(phone,fourBitRandom,10, TimeUnit.DAYS);
+            redisTemplate.opsForValue().set(phone, fourBitRandom, 10, TimeUnit.DAYS);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return true;
     }
 
+    @Override
+    public void sendMessage(SmsVo smsVo) {
+        if (!StringUtils.isEmpty(smsVo.getPhone())) {
+            //给就诊人短信提醒
+            System.out.println("给就诊人短信提醒");
+            //仅为了测试
+        }
+    }
 
 }

@@ -7,6 +7,8 @@ import com.donglin.yygh.model.user.Patient;
 import com.donglin.yygh.user.service.PatientService;
 import com.donglin.yygh.user.utils.AuthContextHolder;
 import com.donglin.yygh.user.utils.JwtHelper;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,6 +62,14 @@ public class PatientController {
     public R removePatient(@PathVariable Long id) {
         patientService.removeById(id);
         return R.ok();
+    }
+
+    @ApiOperation(value = "获取就诊人")
+    @GetMapping("{id}")
+    public Patient getPatientOrder(
+            @ApiParam(name = "id", value = "就诊人id", required = true)
+            @PathVariable("id") Long id) {
+        return patientService.getById(id);
     }
 }
 

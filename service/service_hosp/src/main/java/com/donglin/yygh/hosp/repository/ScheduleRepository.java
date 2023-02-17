@@ -14,4 +14,6 @@ public interface ScheduleRepository extends MongoRepository<Schedule,String> {
     Schedule findByHoscodeAndHosScheduleId(String hoscode, String hosScheduleId);
 
     List<Schedule> findByHoscodeAndDepcodeAndWorkDate(String hoscode, String depcode, Date date);
+
+    Schedule findByHosScheduleId(String scheduleId);
 }

@@ -31,6 +31,12 @@
             <version>2.9.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.donglin</groupId>
+            <artifactId>rabbit_util</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
 </project>
